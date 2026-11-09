@@ -1,6 +1,6 @@
 # Service jobs analysis: a data journey
 
-A start-to-finish data analysis, done in stages and shared as I go.
+A start-to-finish data analysis, done in 4 stages and shared as I go: clean, ask, chart, conclude.
 The data is **completely made up** (see `make_data.py`). It copies the shape of a home service company's job export: repairs, services and installs over one year.
 
 ## The stages
@@ -10,7 +10,7 @@ The data is **completely made up** (see `make_data.py`). It copies the shape of 
 | 1 | [Get and clean the data](stage1-clean/) | Done |
 | 2 | [Ask the business questions in SQL](stage2-sql/) | Done |
 | 3 | [Turn the answers into charts](stage3-charts/) | Done |
-| 4 | Write up what I found | Next |
+| 4 | [What I found](stage4-findings/) | Done |
 
 ## Stage 1: get and clean the data
 
@@ -77,6 +77,12 @@ Three rules for every chart:
 
 The third chart asks a question rather than answering one. Is ENG-08 at 73.9% really worse, or did they just have an unlucky year? That's stage 4.
 
+## Stage 4: what I found
+
+The [full findings are here](stage4-findings/). In short: winter is the pressure point, 14.8% of repairs need a second visit, and the areas earn about the same per job.
+
+The best part is a twist. My test flagged one engineer as worse, but because I made the data I know it picked the **wrong** one. I re-ran the whole year 500 times to find out if the method was broken (it isn't: it finds the right engineer 82% of the time, and a wrong one 3% of the time). This year was just an unlucky draw. That's why a flag should start a conversation, never end one.
+
 ## Run it
 
 ```
@@ -84,5 +90,6 @@ python3 make_data.py              # makes data/jobs_raw.csv
 python3 stage1-clean/clean.py     # makes data/jobs_clean.csv and the log
 python3 stage2-sql/run_queries.py # runs the SQL, writes answers.md
 python3 stage3-charts/make_charts.py
-pytest -q                         # 17 checks
+python3 stage4-findings/check_engineers.py
+pytest -q                         # 23 checks
 ```
