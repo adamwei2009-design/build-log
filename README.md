@@ -12,5 +12,6 @@ How I work: I design the process, set the rules and test it. AI helps me write t
 | 3 | Automatic warranty emails | Live | Automate the send, keep a "needs a person" list |
 | 4 | Duplicate lead checker (Cloudflare) | Testing | Only act on your own when you're certain |
 | 5 | The automation that watches my automation | Live | Automations fail quietly, so build the alarm too |
+| tool | [Upload safety check](tools/) | In use | Check before you publish, every time |
 
 More coming each week.
