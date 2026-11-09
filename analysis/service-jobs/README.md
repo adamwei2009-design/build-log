@@ -9,8 +9,8 @@ The data is **completely made up** (see `make_data.py`). It copies the shape of 
 |---|---|---|
 | 1 | [Get and clean the data](stage1-clean/) | Done |
 | 2 | [Ask the business questions in SQL](stage2-sql/) | Done |
-| 3 | Turn the answers into charts | Next |
-| 4 | Write up what I found | Coming |
+| 3 | [Turn the answers into charts](stage3-charts/) | Done |
+| 4 | Write up what I found | Next |
 
 ## Stage 1: get and clean the data
 
@@ -61,11 +61,28 @@ A query can run without errors and still be wrong. So `test_stage2.py` answers e
 - **Engineers:** around 100 repairs each is a small sample. A gap between 74% and 92% *might* be a real difference, or it might be luck. Stage 4 checks this before naming anyone as a problem.
 - **Areas:** West earns most because it has the most jobs, not because each job is worth more.
 
+## Stage 3: turn the answers into charts
+
+Three rules for every chart:
+
+- **The title says the answer.** You should get the point without studying the chart.
+- **The numbers in the title are tested.** If the data changes and a title stops being true, a test fails.
+- **No tricks with the axis.** Bars start at zero. For the engineer chart I used dots, because dots can honestly start at 60%, where bars would make small gaps look huge.
+
+![Repairs more than triple in winter](stage3-charts/chart1_busiest_months.png)
+
+![Winter repairs wait longer](stage3-charts/chart2_repair_wait.png)
+
+![First-time fix by engineer](stage3-charts/chart3_first_time_fix.png)
+
+The third chart asks a question rather than answering one. Is ENG-08 at 73.9% really worse, or did they just have an unlucky year? That's stage 4.
+
 ## Run it
 
 ```
 python3 make_data.py              # makes data/jobs_raw.csv
 python3 stage1-clean/clean.py     # makes data/jobs_clean.csv and the log
 python3 stage2-sql/run_queries.py # runs the SQL, writes answers.md
-pytest -q                         # 15 checks
+python3 stage3-charts/make_charts.py
+pytest -q                         # 17 checks
 ```

@@ -15,7 +15,7 @@ How I work: I design the process, set the rules and test it. AI helps me write t
 | 4 | Duplicate lead checker (Cloudflare) | Testing | Only act on your own when you're certain |
 | 5 | The automation that watches my automation | Live | Automations fail quietly, so build the alarm too |
 | tool | [Upload safety check](tools/) | In use | Check before you publish, every time |
-| data | [Service jobs analysis: a data journey](analysis/service-jobs/) | Stage 2 of 4 | Check every SQL answer a second way |
+| data | [Service jobs analysis: a data journey](analysis/service-jobs/) | Stage 3 of 4 | A chart title should state the answer, and be tested |
 | code | [Working examples with tests](examples/) | 10 tests passing | Merge repeat alerts, route by context, safe deletes, clean images |
 
 More coming each week.

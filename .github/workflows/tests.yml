@@ -8,6 +8,6 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - run: pip install pytest
+      - run: pip install pytest matplotlib
       - run: cd examples && pytest -q
       - run: cd analysis/service-jobs && pytest -q
