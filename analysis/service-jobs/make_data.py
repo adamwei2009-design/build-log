@@ -55,6 +55,7 @@ def build(rng):
                     "customer_id": rng.choice(customers),
                     "area": rng.choice(AREAS),
                     "job_type": job_type,
+                    "visit_type": "first",
                     "requested_date": requested,
                     "visit_date": visit,
                     "engineer_id": engineer,
@@ -66,7 +67,8 @@ def build(rng):
         job_no += 1
         follow = r["visit_date"] + timedelta(days=rng.randint(3, 14))
         rows.append(r | {"job_id": f"J{job_no}", "requested_date": r["visit_date"],
-                         "visit_date": follow, "fixed_first_time": "yes",
+                         "visit_date": follow, "fixed_first_time": "",
+                         "visit_type": "return",
                          "price_gbp": 0.0})
     return rows
 

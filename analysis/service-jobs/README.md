@@ -8,8 +8,8 @@ The data is **completely made up** (see `make_data.py`). It copies the shape of 
 | Stage | What I do | Status |
 |---|---|---|
 | 1 | [Get and clean the data](stage1-clean/) | Done |
-| 2 | Ask the business questions in SQL | Next |
-| 3 | Turn the answers into charts | Coming |
+| 2 | [Ask the business questions in SQL](stage2-sql/) | Done |
+| 3 | Turn the answers into charts | Next |
 | 4 | Write up what I found | Coming |
 
 ## Stage 1: get and clean the data
@@ -40,18 +40,32 @@ A raw export is never ready to use. This one has the mess a real one has, put th
 - **Visit before request:** these 12 jobs are kept, but their waiting time is left blank, so they can't drag the waiting-time answers in stage 2.
 - **Unknown date formats:** stop with an error instead of guessing. A wrong date is worse than no date.
 
-### The questions for stage 2
+## Stage 2: ask the business questions in SQL
 
-1. Which months are busiest, and for which kind of job?
-2. How long do customers wait for a visit, and does winter change that?
-3. What share of repairs are fixed on the first visit, and does it vary by engineer?
-4. How often does a customer need a second visit for the same fault?
-5. Which areas bring in the most per job?
+The clean data goes into SQLite, and each question is one query in [queries.sql](stage2-sql/queries.sql). [answers.md](stage2-sql/answers.md) has every query next to its result. The short version:
+
+| Question | What the SQL says |
+|---|---|
+| 1. Which months are busiest? | December (259 jobs) and November (255). June and July are quietest (146 each). Repairs drive it: 171 in December against 48 in summer. Services peak in October (112). |
+| 2. Does winter mean longer waits for a repair? | Yes. 4.6 days on average in winter against 3.1 the rest of the year, and 37.6% wait more than 5 days against 15.3%. |
+| 3. How many repairs are fixed first time? | Between 73.9% and 91.9% depending on the engineer. |
+| 4. How often is a second visit needed? | 167 return visits for 1,132 repairs, so 14.8% more trips than jobs. |
+| 5. Which area brings in the most? | West (£216,747), but it also has the most jobs. Per job, the five named areas are close (£406 to £436). |
+
+### How I checked the SQL
+
+A query can run without errors and still be wrong. So `test_stage2.py` answers every question a second way, in plain Python, and the two must match. It also checks that no rows went missing when loading into SQLite. If 2,507 rows go in, 2,507 must come out.
+
+### What I'm careful not to claim yet
+
+- **Engineers:** around 100 repairs each is a small sample. A gap between 74% and 92% *might* be a real difference, or it might be luck. Stage 4 checks this before naming anyone as a problem.
+- **Areas:** West earns most because it has the most jobs, not because each job is worth more.
 
 ## Run it
 
 ```
 python3 make_data.py              # makes data/jobs_raw.csv
 python3 stage1-clean/clean.py     # makes data/jobs_clean.csv and the log
-pytest -q                         # 8 checks
+python3 stage2-sql/run_queries.py # runs the SQL, writes answers.md
+pytest -q                         # 15 checks
 ```
