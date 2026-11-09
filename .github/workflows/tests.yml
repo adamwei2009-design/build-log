@@ -10,3 +10,4 @@ jobs:
           python-version: "3.12"
       - run: pip install pytest
       - run: cd examples && pytest -q
+      - run: cd analysis/service-jobs && pytest -q
