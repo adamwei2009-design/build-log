@@ -11,9 +11,9 @@ How I work: I design the process, set the rules and test it. AI helps me write t
 |---|---|---|---|
 | 1 | [Enquiry auto-reply](builds/01-enquiry-auto-reply.md) | Live | An automation isn't finished until you can prove it didn't miss anything |
 | 2 | [WhatsApp quote journey](builds/02-whatsapp-quote-journey.md) | Live | Measure each step before blaming the tool |
-| 3 | Automatic warranty emails | Live | Automate the send, keep a "needs a person" list |
+| 3 | [Automatic warranty emails](builds/03-warranty-emails.md) | Live | Automate the send, keep a "needs a person" list |
 | 4 | Duplicate lead checker (Cloudflare) | Testing | Only act on your own when you're certain |
-| 5 | The automation that watches my automation | Live | Automations fail quietly, so build the alarm too |
+| 5 | [The automation that watches my automation](builds/05-watchdog.md) | Live | Automations fail quietly, so build the alarm too |
 | tool | [Upload safety check](tools/) | In use | Check before you publish, every time |
 | data | [Service jobs analysis: a data journey](analysis/service-jobs/) | Done (4 stages) | A test can flag the wrong person, so check before you blame |
 | code | [Working examples with tests](examples/) | 10 tests passing | Merge repeat alerts, route by context, safe deletes, clean images |
