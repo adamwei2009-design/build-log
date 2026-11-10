@@ -83,6 +83,12 @@ The [full findings are here](stage4-findings/). In short: winter is the pressure
 
 The best part is a twist. My test flagged one engineer as worse, but because I made the data I know it picked the **wrong** one. I re-ran the whole year 500 times to find out if the method was broken (it isn't: it finds the right engineer 82% of the time, and a wrong one 3% of the time). This year was just an unlucky draw. That's why a flag should start a conversation, never end one.
 
+## Power BI dashboard
+
+The same data as a one-page [Power BI dashboard](powerbi/), with the DAX measures and a check that every card matches the SQL.
+
+![Service jobs dashboard in Power BI](powerbi/dashboard.png)
+
 ## Run it
 
 ```

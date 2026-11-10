@@ -9,6 +9,7 @@ The examples use made-up data, apart from one analysis of open government data, 
 
 - [How homes are heated: Census 2021](analysis/home-heating-census/). Real published data from the Office for National Statistics. SQL, charts, 14 tests, and my numbers checked against what ONS published.
 - [Service jobs analysis](analysis/service-jobs/). Cleaning, SQL, charts and findings on a made-up dataset, with 23 tests that check the numbers add up.
+- [Power BI dashboard](analysis/service-jobs/powerbi/). The same made-up data as a one-page dashboard, with the DAX measures and every card checked against the SQL.
 
 How I work: I design the process, set the rules and test it. AI helps me write the code. Nothing goes live until it has passed a test with fake data, and every build has an undo.
 
