@@ -16,6 +16,7 @@ How I work: I design the process, set the rules and test it. AI helps me write t
 | 5 | [The automation that watches my automation](builds/05-watchdog.md) | Live | Automations fail quietly, so build the alarm too |
 | tool | [Upload safety check](tools/) | In use | Check before you publish, every time |
 | data | [Service jobs analysis: a data journey](analysis/service-jobs/) | Done (4 stages) | A test can flag the wrong person, so check before you blame |
+| report | [The monthly review that adds up](builds/monthly-review.md) | Live | Before you make a report look nice, check it adds up |
 | code | [Working examples with tests](examples/) | 10 tests passing | Merge repeat alerts, route by context, safe deletes, clean images |
 
 More coming each week.
