@@ -31,6 +31,6 @@ A daily check lists anything that came in but didn't get a reply or an owner. An
 Fake enquiries only, sent to my own inbox, before anything went live. Every live change has an undo.
 
 ## Impact
-In its first 3 weeks live it answered about 570 enquiries, around 28 a day, without anyone typing a reply.
+Every enquiry now gets a reply straight away, day or night, without anyone typing it. Staff only pick up the ones that need a person.
 
 _No real customer data, company names or keys are in this write-up._
