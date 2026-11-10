@@ -11,3 +11,4 @@ jobs:
       - run: pip install pytest matplotlib
       - run: cd examples && pytest -q
       - run: cd analysis/service-jobs && pytest -q
+      - run: cd analysis/home-heating-census && pytest -q
